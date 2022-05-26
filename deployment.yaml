@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saleor-dashboard
+spec:
+  selector:
+    matchLabels:
+      app: saleor-dashboard
+  template:
+    metadata:
+      labels:
+        app: saleor-dashboard
+    spec:
+      containers:
+        - name: saleor-dashboard
+          image: saleor-dashboard:${CICD_EXECUTION_SEQUENCE}
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: saleor-dashboard-svc
+spec:
+  selector:
+    app: saleor-dashboard
+  ports:
+    - port: 80
+      targetPort: 80

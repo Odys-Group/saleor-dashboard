@@ -18,6 +18,7 @@
 !.pylintrc
 !.travis*
 !.tx
+!.rancher-pipeline.yml
 *.css
 *.log
 *.pyc

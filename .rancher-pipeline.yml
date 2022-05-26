@@ -1,0 +1,15 @@
+stages:
+  - name: Publish
+    when:
+      branch: 3.1
+    steps:
+      - publishImageConfig:
+          dockerfilePath: ./Dockerfile
+          buildContext: .
+          tag: saleor-dashboard:${CICD_EXECUTION_SEQUENCE}
+  - name: Deployment
+    when:
+      branch: 3.1
+    steps:
+      - applyYamlConfig:
+          path: ./deployment.yaml
