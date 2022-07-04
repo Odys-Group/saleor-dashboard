@@ -26,7 +26,7 @@ spec:
       - name: pipeline-docker-registry
       containers:
         - name: saleor-dashboard
-          image: saleor-dashboard:${CICD_EXECUTION_SEQUENCE}
+          image: 127.0.0.1:34494/saleor-dashboard:${CICD_EXECUTION_SEQUENCE}
           ports:
             - containerPort: 80
 
